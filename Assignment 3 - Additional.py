@@ -67,3 +67,26 @@ print(isinstance(b, Derived))
 # But d is an instance of Base 
 print(isinstance(d, Base)) 
 
+
+# In[44]:
+
+
+########################## 4)
+class Person:
+    def __init__(self, name):
+        self.__name = name
+    
+    def __str__(self):
+                return "%s "% (self.__name)
+        
+class Student(Person):
+    def __init__(self, surname, *args, **kwargs):
+        super(Student, self).__init__(*args, **kwargs)
+        self._surname = surname
+        
+    def __str__(self):
+        return super(Student, self).__str__() + " %s " % self._surname
+    
+charlie = Student('Viswanath', 'Kasi')
+print(charlie)
+
